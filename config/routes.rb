@@ -1,7 +1,8 @@
 StickyBookmarks::Application.routes.draw do
 
-  resources :books
-  resources :scenes
+  resources :books do
+    resources :scenes
+  end
   
   root to: "books#index"
 

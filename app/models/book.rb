@@ -1,4 +1,4 @@
 class Book < ActiveRecord::Base
-	belongs_to :User
-	has_many :Scenes
+	belongs_to :user
+	has_many :scenes
 end

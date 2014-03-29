@@ -1,9 +1,10 @@
 <h1>Welcome to Sticky Bookmarks</h1>
 
 <%= link_to "Add new book", new_book_path %>
+<br>
 
 <% @books.each do |book| %>
-	<%= book.name %>
-	<%= book.author %>
-
+	<%= link_to book.name, book_path(book) %> |
+	<%= book.author %> |
+	<%= book.genre %>
 <% end %>

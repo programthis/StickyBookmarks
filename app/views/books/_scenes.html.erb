@@ -1,0 +1,8 @@
+<% @book.scenes.each do |f| %>
+	<p>
+		Sticky Bookmark: 
+		Chapter: <%= f.chapter %>
+		Page: <%= f.page %>
+	</p>
+	<%= link_to "delete", book_scene_path(@book, f), method: :delete %>
+<% end %>
