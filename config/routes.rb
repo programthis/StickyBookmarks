@@ -10,8 +10,6 @@ StickyBookmarks::Application.routes.draw do
     resources :scenes
   end
 
-  get 'books/autocomplete_book_name'
-
   get "book_search" => "books#search"
   root to: "books#index"
 
