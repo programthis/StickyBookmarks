@@ -1,7 +1,10 @@
 <h1>Welcome to Sticky Bookmarks</h1>
 
 <div id="the-basics">
-  <input class="typeahead" type="text" placeholder="Search for Books">
+	<%= form_tag book_search_path, class: "typeahead", method: "GET" do %>
+		<input type = "text" name = "search"/>
+		<input type = "submit" name = "GO" value = "Search for Books" />
+	<% end %>
 </div>
 
 <%= link_to "Add new book", new_book_path %>

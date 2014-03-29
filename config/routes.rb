@@ -9,7 +9,7 @@ StickyBookmarks::Application.routes.draw do
   resources :books do
     resources :scenes
   end
-
+  get "book_search" => "books#search"
   root to: "books#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
