@@ -3,15 +3,20 @@
 
 <h1>Add Sticky Bookmark</h1>
 
-<%= form_for [@book, @scenes], remote: :true do |f| %>
+<%= form_for [@book, @scene], remote: :true do |f| %>
 	<p>
 		<%= f.label :chapter %>
 		<%= f.number_field :chapter %>
 	</p>
-
-
+	<p>
+		<%= f.label :page %>
+		<%= f.number_field :page %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
 <% end %>
 
-<div id = "bookmarks">
+<div id = "scenes">
 	<%= render :partial => "scenes" %>
 </div>
