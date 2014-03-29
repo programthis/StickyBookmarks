@@ -1,0 +1,32 @@
+<%= form_for(@user) do |f| %>
+
+ <%= render partial: "shared/form_errors", locals: {thing: @user} %>
+
+  <p class="form-label">
+    <%= f.label :email %><br>
+    <%= f.text_field :email, size:30 %>
+  </p>
+
+  <p class="form-label">
+    <%= f.label :name, "Name" %><br>
+    <%= f.text_field :name, size:30 %>
+  </p>
+
+  <p class="form-label">
+    <%= f.label :password %><br>
+    <%= f.password_field :password, size:20 %>
+  </p>
+
+  <p class="form-label">
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation, size:20 %>
+  </p>
+
+
+  <p class="form-label">
+    <%= f.submit "Register", class: 'button' %>
+  </p>
+  <div class="form-label">
+  <h4 class="navigation-links">Already have an account? <%= link_to "Login", new_user_session_path %></h4>
+  </div>
+<% end %>

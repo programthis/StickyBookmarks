@@ -1,9 +1,15 @@
 StickyBookmarks::Application.routes.draw do
 
+
+  get "password_resets/create"
+  get "password_resets/edit"
+  get "password_resets/update"
+  resources 'users'
+
   resources :books do
     resources :scenes
   end
-  
+
   root to: "books#index"
 
   # The priority is based upon order of creation: first created -> highest priority.

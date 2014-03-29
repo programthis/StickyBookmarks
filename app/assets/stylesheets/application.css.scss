@@ -1,0 +1,28 @@
+/*
+ * We don't depend on Sprockets, we load everything by @importing via Sass.
+ * (See this note about Sprockets & Sass: https://github.com/rails/sass-rails#important-note)
+ *
+ * This allows us to include all the variables and mixins in one place and have them accessible anywhere,
+ * in addition to controlling the load order. The downside of this approach is that we must remember to
+ * @import new CSS files here rather than relying on them to be loaded automatically.
+ *
+ * The second downside is that there's an extra step to debugging, since you must look in the generated
+ * application.css file to see the original file and line number. This isn't so bad since you can click
+ * line numbers in both WebKit Developer Tools & Firebug and it takes you straight to the line that
+ * tells you the original file and line number.
+*/
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+@import 'bootstrap';
+@import 'cover';

@@ -32,6 +32,12 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+# Using sorcery for users.
+	gem 'sorcery'
+
+# Using bootstrap for front-end
+	gem 'bootstrap-sass', '~> 3.1.1.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
