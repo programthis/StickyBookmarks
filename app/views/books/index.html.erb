@@ -1,2 +1,9 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<h1>Welcome to Sticky Bookmarks</h1>
+
+<%= link_to "Add new book", new_book_path %>
+
+<% @books.each do |book| %>
+	<%= book.name %>
+	<%= book.author %>
+
+<% end %>
