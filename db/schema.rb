@@ -11,10 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140329024902) do
+ActiveRecord::Schema.define(version: 20140329032125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "books", force: true do |t|
+    t.string   "name"
+    t.string   "author"
+    t.string   "genre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "ISBN",       limit: 8
+  end
+
+  create_table "scenes", force: true do |t|
+    t.integer  "chapter"
+    t.integer  "page"
+    t.integer  "upvote"
+    t.integer  "downvote"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "book_id"
+    t.integer  "user_id"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                           null: false
