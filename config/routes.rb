@@ -1,5 +1,10 @@
 StickyBookmarks::Application.routes.draw do
 
+  get "scenes/index"
+  get "scenes/show"
+  get "scenes/new"
+  get "scenes/create"
+  get "scenes/destroy"
   resources :books
   
   root to: "books#index"
