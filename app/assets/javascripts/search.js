@@ -2,7 +2,6 @@ $(document).ready(function(){
 
 	var books;
 	var book_names = [];
-	var book_authors = [];
 
 	$.ajax({
 	  type: "GET",
@@ -17,7 +16,6 @@ $(document).ready(function(){
 		var numBooks = books.length;
 		for (var i = 0; i < books.length ; i++){
 			book_names[i] = books[i].name;
-			book_authors[i] = books[i].authors;
 		}
 	}
 

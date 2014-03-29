@@ -1,12 +1,13 @@
 class BooksController < ApplicationController
+
   def index
   	@books = Book.all
-    respond_to do |format|
-      format.html
-      format.json {
-        render json: @books.to_json(only: [:name, :author])
-      }
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.json {
+    #     render json: @books.to_json(only: [:name])
+    #   }
+    # end
   end
 
   def show
@@ -28,7 +29,7 @@ class BooksController < ApplicationController
   end
 
   def search
-    @books = Book.where("name LIKE ?","%#{params[:search]}%")
+    @books = Book.where("name iLIKE ?","%#{params[:search]}%")
     render :index
   end
 
