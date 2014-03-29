@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  chapter: 1
+  page: 1
+  upvote: 1
+  downvote: 1
+
+two:
+  chapter: 1
+  page: 1
+  upvote: 1
+  downvote: 1
