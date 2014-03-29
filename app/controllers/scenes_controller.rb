@@ -36,7 +36,7 @@ class ScenesController < ApplicationController
 
   private
   def scene_params
-    params.require(:scene).permit(:chapter, :page)
+    params.require(:scene).permit(:chapter, :page, :tag_list)
   end
 
   def load_book
