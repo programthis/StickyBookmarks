@@ -1,10 +1,12 @@
 StickyBookmarks::Application.routes.draw do
 
+  resources :user_sessions
+  resources :users
 
-  get "password_resets/create"
-  get "password_resets/edit"
-  get "password_resets/update"
-  resources 'users'
+  get 'login' => 'user_sessions#new', :as => :login
+  post 'logout' => 'user_sessions#destroy', :as => :logout
+  resources :users
+  resources :password_resets
 
   resources :books do
     resources :scenes
