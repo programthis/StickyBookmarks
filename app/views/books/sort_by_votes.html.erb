@@ -8,19 +8,25 @@
 </div>
 <br>
 
-<div class="row">
-    <% @books.each do |book| %>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <div class="cropped_image">
-             <%= link_to image_tag(book.cover), "/books/#{book.id}" %>
+<div class="container-fluid">
+  <div class="row">
+      <% @books.each do |book| %>
+        <div class="col-xs-6 col-md-4 cf">
+          <div class="thumbnail cf">
+            <div class="cropped_image left">
+               <%= link_to image_tag(book.cover), "/books/#{book.id}" %>
+            </div>
+            <div class="caption">
+              <h3><%= book[:name] %></h3>
+              </br>
+              <hr>
+              <h4><%= book[:author] %></h4>
+              Number of Bookmarks:
+              <%= book.scenes.count %>
+            </div>
           </div>
-          <div class="caption">
-            <h3><%= book[:name] %> by <%= book[:author] %></h3>
-            <hr>
-          </div>
+          <%= link_to "Delete Book", book_path(book), method: :delete %>
         </div>
-        <%= link_to "Delete Book", book_path(book), method: :delete %>
-      </div>
-    <% end %>
+      <% end %>
+  </div>
 </div>
