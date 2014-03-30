@@ -42,11 +42,13 @@
 			</p>
 			<p>
 				<%= f.submit %>
+				<hr>
 				<% end %>
 		<% else %>
 		</div>
 	</div>
 		<h1>Please <%= link_to "login", new_user_session_path %> or <%= link_to "register", new_user_path %> to add a sticky bookmark.</h1>
+		<hr>
 		<% end %>
 
 	<div id = "scenes">
