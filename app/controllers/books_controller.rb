@@ -28,6 +28,14 @@ class BooksController < ApplicationController
   	end
   end
 
+  def sort_by_recent
+    @books = Book.all(order: "created_at DESC")
+  end
+
+  def sort_by_popular
+
+  end
+
   def search
     @books = Book.where("name iLIKE ?","%#{params[:search]}%")
     render :index
