@@ -29,8 +29,8 @@ class BooksController < ApplicationController
 
     cover = JSON.parse(books_json)
     @book.cover = cover["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"]
-
-
+    @book.ISBN = cover["items"][0]["volumeInfo"]["industryIdentifiers"][0]["identifier"]
+    
   	if @book.save
   		redirect_to root_path
   	else
