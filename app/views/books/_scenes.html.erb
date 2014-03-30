@@ -1,8 +1,11 @@
+<h1>Scenes</h1>
 <% @book.scenes.each do |f| %>
 	<p>
 		Sticky Bookmark: 
 		Chapter: <%= f.chapter %>
 		Page: <%= f.page %>
+		<%= link_to "Upvote", book_upvote_path(@book, f), method: :post %> (<%= f.upvote %>)
+		<%= link_to "Downvote", book_downvote_path(@book, f), method: :post %> (<%= f.downvote %>)
 	</p>
 	<%= link_to "delete", book_scene_path(@book, f), method: :delete %>
 <% end %>

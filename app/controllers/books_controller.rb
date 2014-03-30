@@ -1,6 +1,13 @@
 class BooksController < ApplicationController
+
   def index
   	@books = Book.all
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: @books.to_json(only: [:name])
+      }
+    end
   end
 
   def show
@@ -19,6 +26,20 @@ class BooksController < ApplicationController
   	else
   		render :new
   	end
+  end
+
+  def sort_by_recent
+    @books = Book.all(order: "created_at DESC")
+  end
+
+  def sort_by_votes
+
+
+  end
+
+  def search
+    @books = Book.where("name iLIKE ?","%#{params[:search]}%")
+    render :index
   end
 
   def edit
