@@ -1,5 +1,6 @@
 StickyBookmarks::Application.routes.draw do
 
+  get 'tags/:tag', to: 'books#index', as: :tag
   resources :user_sessions
   resources :users
 
@@ -12,6 +13,7 @@ StickyBookmarks::Application.routes.draw do
     resources :scenes
   end
 
+  get "book_search" => "books#search"
   root to: "books#index"
 
   # The priority is based upon order of creation: first created -> highest priority.

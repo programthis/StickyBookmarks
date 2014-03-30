@@ -1,6 +1,19 @@
+require 'open-uri'
 class BooksController < ApplicationController
+
   def index
-  	@books = Book.all
+    booklist = []
+    if params[:tag]
+
+      @books = Book.all.each do |x|
+        booklist << x.scenes.tagged_with(params[:tag])
+      end
+      @books = booklist
+      puts @books
+    else
+    	 @books = Book.all
+    end
+
   end
 
   def show
@@ -13,12 +26,26 @@ class BooksController < ApplicationController
   end
 
   def create
-  	@book = Book.new(book_params)
+    @book = Book.new(book_params)
+
+    books_json = open("https://www.googleapis.com/books/v1/volumes?q=#{(params[:book][:name]).gsub(' ', '%20')}+inauthor:#{(params[:book][:author]).gsub(' ', '%20')}&key=#{Figaro.env.google_books_api}").read
+
+    puts
+
+    cover = JSON.parse(books_json)
+    @book.cover = cover["items"][0]["volumeInfo"]["imageLinks"]["thumbnail"]
+
+
   	if @book.save
   		redirect_to root_path
   	else
   		render :new
   	end
+  end
+
+  def search
+    @books = Book.where("name iLIKE ?","%#{params[:search]}%")
+    render :index
   end
 
   def edit

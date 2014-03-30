@@ -38,6 +38,9 @@ end
 # Using act-as-tag for tagging our books
 	gem 'acts-as-taggable-on'
 
+# Figaro for API management
+	gem "figaro"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

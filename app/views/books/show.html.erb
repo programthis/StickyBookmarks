@@ -1,8 +1,26 @@
 <%= @book.name %>
 <%= @book.author %>
-
+<%= image_tag(@book.cover) %>
 <h1>Add Sticky Bookmark</h1>
 
-<div id = "bookmarks">
+<%= form_for [@book, @scene], remote: :true do |f| %>
+	<p>
+		<%= f.label :chapter %>
+		<%= f.number_field :chapter %>
+	</p>
+	<p>
+		<%= f.label :page %>
+		<%= f.number_field :page %>
+	</p>
+	<p>
+		<%= f.label :tag_list, "Tags (separated by commas)" %>
+		<%= f.text_field :tag_list %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>
+
+<div id = "scenes">
 	<%= render :partial => "scenes" %>
 </div>

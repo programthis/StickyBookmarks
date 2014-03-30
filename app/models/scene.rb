@@ -1,5 +1,5 @@
 class Scene < ActiveRecord::Base
 	belongs_to :book
-
-acts_as_taggable
+	belongs_to :user
+	acts_as_taggable
 end

@@ -1,8 +1,13 @@
+<h1>Scenes</h1>
 <% @book.scenes.each do |f| %>
 	<p>
-		Sticky Bookmark: 
+		Sticky Bookmark:
 		Chapter: <%= f.chapter %>
 		Page: <%= f.page %>
+	</p>
+
+	<p>
+		Tags: <%= raw f.tag_list.map { |tag| link_to tag, tag_path(tag) }.join(', ') %>
 	</p>
 	<%= link_to "delete", book_scene_path(@book, f), method: :delete %>
 <% end %>
