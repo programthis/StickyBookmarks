@@ -6,8 +6,21 @@
  </div>
 <br>
 
-<% @books.each do |book| %>
-	<%= link_to book.name, book_path(book) %></br>
-	<%= book.author %> | <%= book.genre %>
-	<hr>
-<% end %>
+<div class="row">
+    <% @books.each do |book| %>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <div class="cropped_image">
+             <%= link_to image_tag(book.cover), "/books/#{book.id}" %>
+          </div>
+          <div class="caption">
+            <h3><%= book[:name] %> by <%= book[:author] %></h3>
+            <hr>
+            Number of Bookmarks:
+            <%= book.scenes.count %>
+          </div>
+        </div>
+        <%= link_to "Delete Book", book_path(book), method: :delete %>
+      </div>
+    <% end %>
+</div>

@@ -2,7 +2,6 @@ require 'open-uri'
 class BooksController < ApplicationController
 
   def index
-
   	@books = Book.all
     respond_to do |format|
       format.html
@@ -10,7 +9,6 @@ class BooksController < ApplicationController
         render json: @books.to_json(only: [:name])
       }
     end
-
   end
 
   def show
@@ -67,7 +65,7 @@ class BooksController < ApplicationController
   	end
   end
 
-  def delete
+  def destroy
   	@book = Book.find(params[:id])
   	@book.destroy
   	redirect_to root_path
