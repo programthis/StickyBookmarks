@@ -26,7 +26,8 @@
               <%= book.scenes.count %>
             </div>
           </div>
-          <%= link_to "Delete Book", book_path(book), method: :delete %>
+          <%= link_to "Delete Book", book_path(book), method: :delete %> | 
+          <%= link_to "Edit Book", edit_book_path(book) %>
         </div>
       <% end %>
   </div>
