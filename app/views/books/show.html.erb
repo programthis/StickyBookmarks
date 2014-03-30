@@ -3,24 +3,41 @@
 <%= image_tag(@book.cover) %>
 <h1>Add Sticky Bookmark</h1>
 
-<%= form_for [@book, @scene], remote: :true do |f| %>
-	<p>
-		<%= f.label :chapter %>
-		<%= f.number_field :chapter %>
-	</p>
-	<p>
-		<%= f.label :page %>
-		<%= f.number_field :page %>
-	</p>
-	<p>
-		<%= f.label :tag_list, "Tags (separated by commas)" %>
-		<%= f.text_field :tag_list %>
-	</p>
-	<p>
-		<%= f.submit %>
-	</p>
-<% end %>
-
+<% if current_user %>
+	<%= form_for [@book, @scene], remote: :true do |f| %>
+		<p>
+			<%= f.label :chapter %>
+			<%= f.number_field :chapter %>
+		</p>
+		<p>
+			<%= f.label :page %>
+			<%= f.number_field :page %>
+		</p>
+		<p>
+			<%= f.label :tag_list, "Tags (separated by commas)" %>
+			<%= f.text_field :tag_list %>
+		</p>
+		<p>
+			<%= f.submit %>
+		</p>
+	<% end %>
+	<% else %>
+	<h1>Please <%= link_to (new_user_session_path), "register" %> or <%= link_to (new_user_path), "login" %>.</h1>
+	<% end %>
 <div id = "scenes">
 	<%= render :partial => "scenes" %>
 </div>
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("books", "0");
+
+      function initialize() {
+        var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
+        viewer.load('ISBN:<%= @book.ISBN %>');
+      }
+
+      google.setOnLoadCallback(initialize);
+    </script>
+
+     <div id="viewerCanvas" style="width: 600px; height: 500px"></div>
