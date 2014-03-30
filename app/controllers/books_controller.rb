@@ -32,7 +32,8 @@ class BooksController < ApplicationController
     @books = Book.all(order: "created_at DESC")
   end
 
-  def sort_by_popular
+  def sort_by_votes
+
 
   end
 
