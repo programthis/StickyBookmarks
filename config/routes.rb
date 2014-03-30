@@ -8,6 +8,7 @@ StickyBookmarks::Application.routes.draw do
   post 'logout' => 'user_sessions#destroy', :as => :logout
   get "books_sort_by_recent" => "books#sort_by_recent"
   get "books_sort_by_votes" => "books#sort_by_votes"
+  get "books_alphabetical" => "books#alphabetical"
   
   resources :users
   resources :password_resets

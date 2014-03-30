@@ -45,7 +45,11 @@ class BooksController < ApplicationController
 
   def sort_by_votes
 
+  end
 
+  def alphabetical
+    @books = Book.all
+    @books.sort_by!{ |book| book.name.downcase }
   end
 
   def search
@@ -74,7 +78,7 @@ class BooksController < ApplicationController
 
   private
   def book_params
-  	params.require(:book).permit(:name, :author, :genre, :ISBN)
+  	params.require(:book).permit(:name, :author, :ISBN)
   end
 
 end
