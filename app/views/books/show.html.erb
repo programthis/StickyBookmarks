@@ -12,10 +12,13 @@
 		  <div class="panel-body">
 				<p><%= @book.description %></p>
 		  </div>
+		  <div class="panel-footer">
+			<small>If a book sample is available, you can browse it below.</small>
+		  </div>
 		</div>
-
-		<h4></h4>
-		<div id="viewerCanvas" style="width: 600px; height: 500px"></div>
+		<div class="well well-lg">
+			<div id="viewerCanvas" style="width: 600px; height: 500px"></div>
+		</div>
 	</div>
 	<% if current_user %>
 			<%= form_for [@book, @scene], remote: :true do |f| %>
@@ -23,7 +26,6 @@
 				<p>
 					<%= f.label :chapter %>
 					<%= f.number_field :chapter, :placeholder => 12 %>
-
 				</p>
 				<p>
 					<%= f.label :page %>
@@ -46,6 +48,7 @@
 		</div>
 	</div>
 		<h1>Please <%= link_to "login", new_user_session_path %> or <%= link_to "register", new_user_path %> to add a sticky bookmark.</h1>
+		<hr>
 		<% end %>
 
 	<div id = "scenes">
