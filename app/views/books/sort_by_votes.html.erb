@@ -7,7 +7,7 @@
 <br>
 
 <% @books.each do |book| %>
-	<%= link_to book.name, book_path(book) %></br>
-	<%= book.author %> | <%= book.genre %>
-	<hr>
+	<%= link_to book.name, book_path(book) %> |
+	<%= book.author %> |
+	<%= book.genre %>
 <% end %>

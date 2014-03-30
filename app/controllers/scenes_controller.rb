@@ -29,6 +29,24 @@ class ScenesController < ApplicationController
     end
   end
 
+  def upvote
+    @scene = Scene.find(params[:id])
+    upvote_num = @scene.upvote.to_i
+    upvote_num += 1
+    @scene.upvote = upvote_num
+    @scene.save
+    redirect_to book_path(@book)
+  end
+
+  def downvote
+    @scene = Scene.find(params[:id])
+    downvote_num = @scene.downvote.to_i
+    downvote_num += 1
+    @scene.downvote = downvote_num
+    @scene.save
+    redirect_to book_path(@book)
+  end
+
   def destroy
     @scene = Scene.find(params[:id])
     @scene.destroy

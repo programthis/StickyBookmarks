@@ -2,16 +2,13 @@ require 'open-uri'
 class BooksController < ApplicationController
 
   def index
-    booklist = []
-    if params[:tag]
 
-      @books = Book.all.each do |x|
-        booklist << x.scenes.tagged_with(params[:tag])
-      end
-      @books = booklist
-      puts @books
-    else
-    	 @books = Book.all
+  	@books = Book.all
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: @books.to_json(only: [:name])
+      }
     end
 
   end
@@ -41,6 +38,15 @@ class BooksController < ApplicationController
   	else
   		render :new
   	end
+  end
+
+  def sort_by_recent
+    @books = Book.all(order: "created_at DESC")
+  end
+
+  def sort_by_votes
+
+
   end
 
   def search
