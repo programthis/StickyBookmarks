@@ -12,10 +12,13 @@
 		  <div class="panel-body">
 				<p><%= @book.description %></p>
 		  </div>
+		  <div class="panel-footer">
+			<small>If a book sample is available, you can browse it below.</small>
+		  </div>
 		</div>
-
-		<h4></h4>
-		<div id="viewerCanvas" style="width: 600px; height: 500px"></div>
+		<div class="well well-lg">
+			<div id="viewerCanvas" style="width: 600px; height: 500px"></div>
+		</div>
 	</div>
 	<% if current_user %>
 
