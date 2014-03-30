@@ -32,7 +32,7 @@ class BooksController < ApplicationController
     @book.ISBN = cover["items"][0]["volumeInfo"]["industryIdentifiers"][1]["identifier"]
 
   	if @book.save
-  		redirect_to root_path
+  		redirect_to book_path(@book)
   	else
   		render :new
   	end
