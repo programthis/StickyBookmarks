@@ -6,6 +6,7 @@
 		Page: <%= f.page %>
 		<%= link_to "Upvote", book_upvote_path(@book, f), method: :post %> (<%= f.upvote %>)
 		<%= link_to "Downvote", book_downvote_path(@book, f), method: :post %> (<%= f.downvote %>)
+		<%= f.notes %>
 	</p>
 
 	<p>

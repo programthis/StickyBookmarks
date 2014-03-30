@@ -1,0 +1,32 @@
+<div id = "search-bar">
+  <div id="the-basics">
+        <%= form_tag book_search_path, method: "GET" do %>
+          <input class="form-control typeahead" type = "text" name = "search" placeholder = "Search for Book"/>
+          <button type = "submit" class="btn btn-default" name = "GO" />Submit</button>
+        <% end %>
+   </div>
+</div>
+<br>
+
+<div class="container-fluid">
+  <div class="row">
+      <% @books.each do |book| %>
+        <div class="col-xs-6 col-md-4 cf">
+          <div class="thumbnail cf">
+            <div class="cropped_image left">
+               <%= link_to image_tag(book.cover), "/books/#{book.id}" %>
+            </div>
+            <div class="caption">
+              <h3><%= book[:name] %></h3>
+              </br>
+              <hr>
+              <h4><%= book[:author] %></h4>
+              Number of Bookmarks:
+              <%= book.scenes.count %>
+            </div>
+          </div>
+          <%= link_to "Delete Book", book_path(book), method: :delete %>
+        </div>
+      <% end %>
+  </div>
+</div>

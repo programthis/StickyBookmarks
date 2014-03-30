@@ -44,7 +44,11 @@ class BooksController < ApplicationController
 
   def sort_by_votes
 
+  end
 
+  def alphabetical
+    @books = Book.all
+    @books.sort_by!{ |book| book.name.downcase }
   end
 
   def search
