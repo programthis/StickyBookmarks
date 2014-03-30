@@ -1,9 +1,16 @@
 .active {
   font-weight: bold; }
 
- .cropped_image {
-widows: 171px;
-height: 180px;
+.cropped_image{
+	width:171px;
+	height:250px;
+	overflow:hidden;
+}
+
+ .cropped_image img{
+	width: 171px;
+	height: auto;
+	padding: 5px 5px 0 0;
  }
 
  .left {
@@ -43,4 +50,7 @@ height: 180px;
 
 #search-bar{
 	text-align: center;
+}
+
+.caption{
 }
