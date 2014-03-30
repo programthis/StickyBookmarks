@@ -17,12 +17,18 @@
 			<%= f.text_field :tag_list %>
 		</p>
 		<p>
+			<%= f.label :notes, "User Notes" %>
+			<%= f.text_field :notes %>
+		</p>
+		<p>
 			<%= f.submit %>
 		</p>
 	<% end %>
 	<% else %>
+
 	<h1>Please <%= link_to "login", new_user_session_path %> or <%= link_to "register", new_user_path %> to add a sticky bookmark.</h1>
 	<% end %>
+
 <div id = "scenes">
 	<%= render :partial => "scenes" %>
 </div>
