@@ -1,48 +1,59 @@
-<%= @book.name %>
-<%= @book.author %>
-<%= image_tag(@book.cover) %>
+<div class="row">
+	<div class="col-md-6">
+		<div class="panel panel-default">
+		  <div class="panel-heading"><h3><%= @book.name %></h3> <h4><%= @book.author %></h4></div>
+		  <div class="panel-body">
+		    <p><%= @book.description %></p>
+		  </div>
+		</div>
 
-<% if current_user %>
-	<%= form_for [@book, @scene], remote: :true do |f| %>
-		<p>
-			<%= f.label :chapter %>
-			<%= f.number_field :chapter %>
-		</p>
-		<p>
-			<%= f.label :page %>
-			<%= f.number_field :page %>
-		</p>
-		<p>
-			<%= f.label :tag_list, "Tags (separated by commas)" %>
-			<%= f.text_field :tag_list %>
-		</p>
-		<p>
-			<%= f.label :notes, "User Notes" %>
-			<%= f.text_field :notes %>
-		</p>
-		<p>
-			<%= f.submit %>
-		</p>
-	<% end %>
-	<% else %>
+		<h4></h4>
 
-	<h1>Please <%= link_to "login", new_user_session_path %> or <%= link_to "register", new_user_path %> to add a sticky bookmark.</h1>
-	<% end %>
+		<%= image_tag(@book.cover) %>
+		<div id="viewerCanvas" style="width: 600px; height: 500px"></div>
+	</div>
+	<% if current_user %>
+		<%= form_for [@book, @scene], remote: :true do |f| %>
+			<p>
+				<%= f.label :chapter %>
+				<%= f.number_field :chapter %>
+			</p>
+			<p>
+				<%= f.label :page %>
+				<%= f.number_field :page %>
+			</p>
+			<p>
+				<%= f.label :tag_list, "Tags (separated by commas)" %>
+				<%= f.text_field :tag_list %>
+			</p>
+			<p>
+				<%= f.label :notes, "User Notes" %>
+				<%= f.text_field :notes %>
+			</p>
+			<p>
+				<%= f.submit %>
+			</p>
+		<% end %>
+		<% else %>
 
-<div id = "scenes">
-	<%= render :partial => "scenes" %>
+		<h1>Please <%= link_to "login", new_user_session_path %> or <%= link_to "register", new_user_path %> to add a sticky bookmark.</h1>
+		<% end %>
+
+	<div id = "scenes">
+		<%= render :partial => "scenes" %>
+	</div>
+
+	    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	    <script type="text/javascript">
+	      google.load("books", "0");
+
+	      function initialize() {
+	        var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
+	        viewer.load('ISBN:<%= @book.ISBN %>');
+	      }
+
+	      google.setOnLoadCallback(initialize);
+	    </script>
+
+
 </div>
-
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-      google.load("books", "0");
-
-      function initialize() {
-        var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
-        viewer.load('ISBN:<%= @book.ISBN %>');
-      }
-
-      google.setOnLoadCallback(initialize);
-    </script>
-
-     <div id="viewerCanvas" style="width: 600px; height: 500px"></div>
