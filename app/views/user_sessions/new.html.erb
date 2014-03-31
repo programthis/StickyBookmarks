@@ -1,8 +1,11 @@
-<h1>Login</h1>
+<div id="user-new-fields">
+	<div class="modal-header">
+		<h4>Login</h4>
+	</div>
+	<%= render 'form' %>
+	<div class="modal-footer">
+	<h4>Forgot Password?</h4>
+		<%= render 'forgot_password_form' %>
+	</div>
 
-<%= render 'form' %>
-
-<h1>Forgot Password?</h1>
-<%= render 'forgot_password_form' %>
-
-<%= link_to 'Back', user_sessions_path %>
+</div>
