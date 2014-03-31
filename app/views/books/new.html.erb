@@ -2,21 +2,23 @@
 	<div class="modal-header">
 		<h4>Add a new book!</h4>
 	</div>
-	<%= form_for @book do |f| %>
-		<p>
-			<%= f.label :name %>
-			<%= f.text_field :name, class: "form-control" %>
-		</p>
-		<p>
-			<%= f.label :author %>
-			<%= f.text_field :author, class: "form-control" %>
-		</p>
-		<div class="modal-footer">
-			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			<%= button_tag(type: "submit", class: "btn btn-primary") do %>
-				Save
-			<% end %>
-		</div>
-	<% end %>
+	<div class="modal-body">
+		<%= form_for @book do |f| %>
+			<p>
+				<%= f.label :name %>
+				<%= f.text_field :name, class: "form-control" %>
+			</p>
+			<p>
+				<%= f.label :author %>
+				<%= f.text_field :author, class: "form-control" %>
+			</p>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<%= button_tag(type: "submit", class: "btn btn-primary") do %>
+					Save
+				<% end %>
+			</div>
+		<% end %>
+	</div>
 </div>
 
