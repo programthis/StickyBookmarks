@@ -9,8 +9,11 @@
 			<%= f.label :author %>
 			<%= f.text_field :author %>
 		</p>
-		<p>
-			<%= f.submit %>
-		</p>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			<%= button_tag(type: "submit", class: "btn btn-primary") do %>
+				Submit
+			<% end %>
+		</div>
 	<% end %>
 </div>
