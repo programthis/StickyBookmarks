@@ -1,15 +1,16 @@
 <h1>Add a new book!</h1>
-
-<%= form_for @book do |f| %>
-	<p>
-		<%= f.label :name %>
-		<%= f.text_field :name %>
-	</p>
-	<p>
-		<%= f.label :author %>
-		<%= f.text_field :author %>
-	</p>
-	<p>
-		<%= f.submit %>
-	</p>
-<% end %>
+<div id="modal-new-fields">
+	<%= form_for @book do |f| %>
+		<p>
+			<%= f.label :name %>
+			<%= f.text_field :name %>
+		</p>
+		<p>
+			<%= f.label :author %>
+			<%= f.text_field :author %>
+		</p>
+		<p>
+			<%= f.submit %>
+		</p>
+	<% end %>
+</div>
