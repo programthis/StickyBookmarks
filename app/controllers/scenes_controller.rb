@@ -34,8 +34,15 @@ class ScenesController < ApplicationController
     upvote_num = @scene.upvote.to_i
     upvote_num += 1
     @scene.upvote = upvote_num
-    @scene.save
-    redirect_to book_path(@book)
+    respond_to do |format|
+      if @scene.save
+        format.js
+        format.html{redirect_to book_path(@book)}
+      else
+        format.js
+        format.html{redirect_to book_path(@book)}
+      end
+    end
   end
 
   def downvote
@@ -43,8 +50,15 @@ class ScenesController < ApplicationController
     downvote_num = @scene.downvote.to_i
     downvote_num += 1
     @scene.downvote = downvote_num
-    @scene.save
-    redirect_to book_path(@book)
+    respond_to do |format|
+      if @scene.save
+        format.js
+        format.html{redirect_to book_path(@book)}
+      else
+        format.js
+        format.html{redirect_to book_path(@book)}
+      end
+    end
   end
 
   def destroy
