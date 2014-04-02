@@ -9,6 +9,7 @@ StickyBookmarks::Application.routes.draw do
   get "books_sort_by_recent" => "books#sort_by_recent"
   get "books_sort_by_votes" => "books#sort_by_votes"
   get "books_alphabetical" => "books#alphabetical"
+  get "books_about" => "books#about"
   
   resources :users
   resources :password_resets
