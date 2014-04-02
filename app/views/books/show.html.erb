@@ -24,12 +24,10 @@
 			<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#stickyModal">
 			  Add Sticky Bookmark
 			</button>
-		<% else %>
-		</div>
-	</div>
+	<% else %>
 		<h1>Please <%= link_to "login", new_user_session_path %> or <%= link_to "register", new_user_path %> to add a sticky bookmark.</h1>
 		<hr>
-		<% end %>
+	<% end %>
 
 	<div id = "scenes">
 		<%= render :partial => "scenes" %>
