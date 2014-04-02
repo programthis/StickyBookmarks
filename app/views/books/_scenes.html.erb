@@ -5,16 +5,12 @@
 			<h5>Chapter: <%= f.chapter %></h5>
 			<h5>Page: <%= f.page %></h5>
 			<b>Comments</b>: <%= f.notes %></br>
-			<div id = "upvotes">
-				<%= link_to "Upvote", book_upvote_path(@book, f), remote: true, method: :post %> (<%= f.upvote %>)
-			</div>
-			<div id = "downvotes">
-				<%= link_to "Downvote", book_downvote_path(@book, f), remote: true, method: :post %> (<%= f.downvote %>)
-			</div>
+			<%= link_to "Upvote", book_upvote_path(@book, f), remote: true, method: :post %> (<%= f.upvote %>)
+			<%= link_to "Downvote", book_downvote_path(@book, f), remote: true, method: :post %> (<%= f.downvote %>)
 		<p>
 			Tags: <%= raw f.tag_list.map { |tag| link_to tag, tag_path(tag) }.join(', ') %>
 		</p>
-		<%= link_to "delete", book_scene_path(@book, f), method: :delete %>
+		<%= link_to "delete", book_scene_path(@book, f), remote: true, method: :delete %>
 		<hr>
 	</div>
 <% end %>

@@ -63,8 +63,15 @@ class ScenesController < ApplicationController
 
   def destroy
     @scene = Scene.find(params[:id])
-    @scene.destroy
-    redirect_to book_path(@book)
+    respond_to do |format|
+      if @scene.destroy
+        format.js
+        format.html{redirect_to book_path(@book)}
+      else
+        format.js
+        format.html{redirect_to book_path(@book)}
+      end
+    end
   end
 
   private
