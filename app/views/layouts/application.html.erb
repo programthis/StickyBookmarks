@@ -26,7 +26,6 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a data-toggle="modal" data-target="#myModal" data-remote="<%= new_book_path %> #modal-new-fields" class="btn btn-mini">Add Book</a></li>
-        <li><a href = "/books_about">About</a></li>
         <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sort By<b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -37,6 +36,7 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <li><a href = "/books_about">About</a></li>
       <% if current_user %>
         <li><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
         <li><%= link_to "Logout", :logout, method: :post %></li>
