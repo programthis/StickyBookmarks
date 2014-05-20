@@ -18,8 +18,12 @@
                <%= link_to image_tag(book.cover), "/books/#{book.id}" %>
             </div>
           </div>
-          <%= link_to "Delete Book", book_path(book), method: :delete %> | 
-          <%= link_to "Edit Book", edit_book_path(book) %>
+          <% if current_user %>
+            <% if current_user.email == "admin@admin.com" %>
+              <%= link_to "Delete Book", book_path(book), method: :delete %> | 
+              <%= link_to "Edit Book", edit_book_path(book) %>
+            <% end %>
+          <% end %>
         </div>
       <% end %>
   </div>

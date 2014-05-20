@@ -1,15 +1,24 @@
 <h1>Edit Book</h1>
 
-<%= form_for @book do |f| %>
+<% if current_user %>
+  <% if current_user.email == "admin@admin.com" %>
+    <%= form_for @book do |f| %>
+    	<p>
+    		<%= f.label :name %>
+    		<%= f.text_field :name %>
+    	</p>
+    	<p>
+    		<%= f.label :author %>
+    		<%= f.text_field :author %>
+    	</p>
+    	<p>
+    		<%= f.submit %>
+    	</p>
+    <% end %>
+  <% end %>
+<% else %>
 	<p>
-		<%= f.label :name %>
-		<%= f.text_field :name %>
+		You do not have permissions to edit books.
 	</p>
-	<p>
-		<%= f.label :author %>
-		<%= f.text_field :author %>
-	</p>
-	<p>
-		<%= f.submit %>
-	</p>
+
 <% end %>
