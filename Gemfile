@@ -35,13 +35,13 @@ group :doc do
 end
 
 # Using sorcery for users.
-	gem 'sorcery'
+gem 'sorcery'
 
 # Using act-as-tag for tagging our books
-	gem 'acts-as-taggable-on'
+gem 'acts-as-taggable-on'
 
 # Figaro for API management
-	gem "figaro"
+gem "figaro"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
