@@ -38,7 +38,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href = "/books_about">About</a></li>
       <% if current_user %>
-        <li><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
+        <li><a data-toggle="modal" data-target="#editModal" data-remote="<%= edit_user_path(current_user.id) %> #user-edit-fields" class="btn btn-mini">Edit Profile</a></li>
         <li><%= link_to "Logout", :logout, method: :post %></li>
       <% else %>
         <li><a data-toggle="modal" data-target="#registerModal" data-remote="<%= new_user_path %> #user-register-fields" class="btn btn-mini">Register</a></li>
@@ -67,6 +67,14 @@
 </body>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       
