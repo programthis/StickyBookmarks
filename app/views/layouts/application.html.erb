@@ -41,7 +41,7 @@
         <li><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
         <li><%= link_to "Logout", :logout, method: :post %></li>
       <% else %>
-        <li><%= link_to "Register", new_user_path %></li>
+        <li><a data-toggle="modal" data-target="#registerModal" data-remote="<%= new_user_path %> #user-register-fields" class="btn btn-mini">Register</a></li>
         <li><a data-toggle="modal" data-target="#loginModal" data-remote="<%= new_user_session_path %> #user-new-fields" class="btn btn-mini">Login</a></li>
         <% end %>
       </ul>
@@ -74,6 +74,14 @@
   </div>
 </div>
 
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+    </div>
+  </div>
+</div>
+
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -81,4 +89,5 @@
     </div>
   </div>
 </div>
+
 </html>
